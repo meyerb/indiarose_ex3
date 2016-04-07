@@ -1,14 +1,14 @@
 ﻿<Page
-    x:Class="indiarose_ex3.MainPage"
+    x:Class="indiarose_ex3.Save"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:indiarose_ex3"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
-
-    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-        
-        <Button Content="Add a new one" Click="ButtonBase_OnClick"></Button>
+    <StackPanel HorizontalAlignment="Center">
+        <TextBox Name="BlockTextSaveTitle" Text="Title..."></TextBox>
+        <TextBox Name="BlockTextSaveDescription" Text="Description..."></TextBox>
+        <Button Content="SAVE" Click="ButtonBase_OnClick"></Button>
     </StackPanel>
 </Page>
