@@ -32,7 +32,8 @@ namespace indiarose_ex3
         {
             if (!BlockTextSaveTitle.Text.Equals("") && !BlockTextSaveDescription.Text.Equals(""))
             {
-                Todo newTodo = new Todo(BlockTextSaveTitle.Text,BlockTextSaveDescription.Text);
+                var newTodo = new Todo(BlockTextSaveTitle.Text,BlockTextSaveDescription.Text);
+                MainPage.TodoListe.Add(newTodo);
                 Frame.Navigate(typeof(MainPage));
             }
             if (BlockTextSaveTitle.Text.Equals(""))

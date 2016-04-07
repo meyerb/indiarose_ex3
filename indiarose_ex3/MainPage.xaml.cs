@@ -25,17 +25,15 @@ namespace indiarose_ex3
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        private ObservableCollection<Todo> _todoListe;
-
-        public ObservableCollection<Todo> TodoListe
-        {
-            get { return _todoListe; }
-            set { _todoListe = value; }
+        public static ObservableCollection<Todo> TodoListe {
+            get;
+            set;
         }
 
         public MainPage()
         {
-            this.InitializeComponent();
+            InitializeComponent();
+            NavigationCacheMode=NavigationCacheMode.Enabled;
             TodoListe=new ObservableCollection<Todo>();
         }
 
@@ -43,23 +41,33 @@ namespace indiarose_ex3
         {
             Frame.Navigate(typeof(Save));
         }
+
+        private void ButtonTodo_OnClick(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof (EditDelete),new Todo("dd","dd"));
+        }
     }
 
     public class Todo
     {
-        private TextBlock _textBlock1;
-        private TextBlock _textBlock2;
+        public string Title { get; set; }
+        public string Description { get; set; }
 
         public Todo(String t,String d)
         {
-            _textBlock1.Text = t;
-            _textBlock2.Text = d;
+                Title = t;
+                Description = d;
+        }
+
+        private void EditDelete()
+        {
+
         }
 
         public void EditTodo(String t, String d)
         {
-            _textBlock1.Text = t;
-            _textBlock2.Text = d;
+                Title = t;
+                Description = d;
         }
     }
 }

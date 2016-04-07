@@ -24,14 +24,17 @@ namespace indiarose_ex3
     {
         private Todo _todo;
 
-        public EditDelete()
+        public EditDelete(Todo t)
         {
             this.InitializeComponent();
+            _todo = t;
+            TextTitle.Text = "Title :"+_todo.Title;
+            TextDescription.Text = "Description :"+_todo.Description;
         }
 
         public void Delete()
         {
-            _todo.DeleteTodo();
+           // _todo.DeleteTodo();
         }
     }
 }

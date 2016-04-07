@@ -6,9 +6,18 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
-
+    <!--<Page.DataContext>
+        <local:MainPage/>
+    </Page.DataContext>-->
     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-        
+        <ItemsControl ItemsSource="{Binding TodoListe}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Button Content="{Binding Title}" Click="ButtonTodo_OnClick"></Button>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
         <Button Content="Add a new one" Click="ButtonBase_OnClick"></Button>
     </StackPanel>
 </Page>
+
