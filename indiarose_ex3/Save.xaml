@@ -7,8 +7,8 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
     <StackPanel HorizontalAlignment="Center">
-        <TextBox Name="BlockTextSaveTitle" Text="Title..."></TextBox>
-        <TextBox Name="BlockTextSaveDescription" Text="Description..."></TextBox>
+        <TextBox Name="BlockTextSaveTitle" PlaceholderText="Title..."></TextBox>
+        <TextBox Name="BlockTextSaveDescription" PlaceholderText="Description..."></TextBox>
         <Button Content="SAVE" Click="ButtonBase_OnClick"></Button>
     </StackPanel>
 </Page>

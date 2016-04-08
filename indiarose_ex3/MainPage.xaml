@@ -5,19 +5,16 @@
     xmlns:local="using:indiarose_ex3"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     mc:Ignorable="d">
-    <!--<Page.DataContext>
-        <local:MainPage/>
-    </Page.DataContext>-->
-    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-        <ItemsControl ItemsSource="{Binding TodoListe}">
-            <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                    <Button Content="{Binding Title}" Click="ButtonTodo_OnClick"></Button>
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ItemsControl>
-        <Button Content="Add a new one" Click="ButtonBase_OnClick"></Button>
+
+    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top">
+        <ListBox x:Name="Listbox1" VerticalAlignment="Top">
+            <ListBox.ItemsSource>
+                <Binding Path="TodoListe" />
+            </ListBox.ItemsSource>
+        </ListBox>
+        <Button HorizontalAlignment="Center" Content="Add a new one" Click="ButtonBase_OnClick" VerticalAlignment="Bottom"></Button>
     </StackPanel>
 </Page>
 

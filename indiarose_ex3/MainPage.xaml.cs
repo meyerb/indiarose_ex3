@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -25,16 +26,16 @@ namespace indiarose_ex3
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        public static ObservableCollection<Todo> TodoListe {
-            get;
-            set;
-        }
+        public static MyViewModel _viewModel;
+
+
 
         public MainPage()
         {
             InitializeComponent();
+            _viewModel = new MyViewModel {TodoListe = new ObservableCollection<Todo>()};
             NavigationCacheMode=NavigationCacheMode.Enabled;
-            TodoListe=new ObservableCollection<Todo>();
+            DataContext = _viewModel;
         }
 
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
@@ -68,6 +69,27 @@ namespace indiarose_ex3
         {
                 Title = t;
                 Description = d;
+        }
+    }
+
+    public class MyViewModel : INotifyPropertyChanged
+    {
+        private ObservableCollection<Todo> _liste;
+
+        public ObservableCollection<Todo> TodoListe
+        {
+            get { return _liste; }
+            set
+            {
+                _liste = value;
+                RaisePropertyChanged("TodoListe");
+            }
+        }
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }
